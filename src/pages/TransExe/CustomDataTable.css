@@ -1,0 +1,9 @@
+.custom-data-table .dataTables_filter label {
+    /* searchLabel의 위치 및 스타일 설정 */
+
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+  }
