@@ -34,12 +34,12 @@ File: Main Css File
     background-color: #f8f9fa; }
 
 .navbar-brand-box {
-  padding: 0 1.5rem;
+  padding: 0 2.5rem;
   text-align: center;
-  width: 250px; }
+  width: 350px; }
 
 .logo {
-  line-height: 70px; }
+  line-height: 120px; }
   .logo .logo-sm {
     display: none; }
 
@@ -381,7 +381,7 @@ body[data-layout="horizontal"] .footer {
   letter-spacing: .05em;
   pointer-events: none;
   cursor: default;
-  font-size: 11px;
+  font-size: 8px;
   text-transform: uppercase;
   color: #7f8387;
   font-weight: 600; }

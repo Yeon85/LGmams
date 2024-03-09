@@ -73,7 +73,7 @@
             display: block;
             float: right;
             transition: transform .2s;
-            font-size: 1rem;
+           // font-size: 1rem;
         }
     }
 
@@ -85,7 +85,7 @@
                 font-family: $font-family-secondary;
                 color: $sidebar-menu-item-color;
                 position: relative;
-                font-size: 15.7px;
+               // font-size: 15.7px;
                 transition: all .4s;
 
                 i {
@@ -96,7 +96,7 @@
                     vertical-align: middle;
                     color: $sidebar-menu-item-icon-color;
                     transition: all .4s;
-                    font-size: 14.7px;
+                    //font-size: 14.7px;
                 }
 
                 &:hover {
@@ -118,8 +118,8 @@
                 li {
 
                     a {
-                        padding: .4rem 1.5rem .4rem 3.3rem;
-                        font-size: 15px;
+                        padding: .3rem 1.5rem .3rem 2.0rem;
+                        //font-size: 15px;
                         color: $sidebar-menu-sub-item-color;
                     }
 
@@ -128,8 +128,8 @@
 
                         li {
                             a {
-                                padding: .4rem 1.5rem .4rem 4.5rem;
-                                font-size: 13.5px;
+                                padding: .3rem 1.5rem .3rem 1.5rem;
+                                //font-size: 13.5px;
                             }
                         }
                     }
@@ -145,7 +145,7 @@
     letter-spacing: .05em;
     pointer-events: none;
     cursor: default;
-    font-size: 18px;
+   //s font-size: 18px;
     text-transform: uppercase;
     color: $sidebar-menu-item-icon-color !important;
     font-weight: $font-weight-medium;

@@ -25,7 +25,7 @@ import {
 const INIT_STATE = {
   layoutType: layoutTypes.VERTICAL,
   layoutWidth: layoutWidth.FLUID,
-  leftSideBarTheme: leftSideBarTheme.DARK,
+  leftSideBarTheme: leftSideBarTheme.LIGHT,
   bodyTheme: bodyTheme.LIGHT,
   bodyMode: bodyMode.RTL,
   leftSideBarType: leftSideBarType.DEFAULT,

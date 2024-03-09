@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { Row, Col, CardBody, Card, Container } from "reactstrap";
 // import images
 import logoSm from "../../assets/images/logo-sm.png";
+import backgroundImage from '../../assets/images/background.jpg'; // 이미지 파일의 경로를 입력해주세요.
+
 
 const Login = () => {
   document.title = "Login | Veltrix - React Admin & Dashboard Template";

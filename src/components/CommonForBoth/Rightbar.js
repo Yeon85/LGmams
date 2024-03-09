@@ -1,6 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
-
+import React, { useEffect,useState } from "react";
+import { Row, Col, Card, CardBody, CardTitle, Container } from "reactstrap";
+import ReactDOM from 'react-dom/client';
+import PropTypes, { element } from "prop-types"
+//import Slider from './Slider';
+import Slider from "react-rangeslider";
+import styled from 'styled-components';
 import { connect } from "react-redux"
 import {
   changeLayout,
@@ -22,7 +26,27 @@ import layout1 from "../../assets/images/layouts/layout-1.jpg"
 import layout2 from "../../assets/images/layouts/layout-2.jpg"
 import layout3 from "../../assets/images/layouts/layout-3.jpg"
 
+
+const fn_size = (value) => {
+ document.body.style.fontSize = value+'px';
+}
+
+
+
 const RightSidebar = props => {
+
+ const [custom_val, setcustom_val] = useState(13);
+ const labels = {
+    4 : "4",
+    8 : "8",
+    13: "13",
+    18: "16",
+    24: "24",
+    30: "30",
+    38: "38",
+    46: "46", 
+ };
+ //console.log()
   return (
     <React.Fragment>
       <div className="right-bar" id="right-bar">
@@ -39,14 +63,18 @@ const RightSidebar = props => {
               >
                 <i className="mdi mdi-close noti-icon" />
               </Link>
-              <h5 className="m-0">Settings</h5>
+              <h5 className="m-0">Settings!!!!</h5>
             </div>
 
             <hr className="my-0" />
 
             <div className="p-4">
               <div className="radio-toolbar">
-                <span className="mb-2 d-block">Layouts</span>
+                <span className="mb-2 d-block" id="radio-title">
+                  <h5>
+                    Thema
+                  </h5>
+                </span>
                 <input
                   type="radio"
                   id="radioVertical"
@@ -75,283 +103,84 @@ const RightSidebar = props => {
                 />
                 <label htmlFor="radioHorizontal">Horizontal</label>
               </div>
-
-              <hr className="mt-1" />
-
-              <div className="radio-toolbar">
-                <span className="mb-2 d-block" id="radio-title">
-                  Layout Width
+             <hr className="my-3" />
+             <div className="mb-3">
+                <span className="mb-2 d-block">
+                <h5 class="font-18 text-start">Font Size</h5>
                 </span>
-                <input
-                  type="radio"
-                  id="radioFluid"
-                  name="radioWidth"
-                  value="fluid"
-                  checked={props.layoutWidth === "fluid"}
-                  onChange={e => {
-                    if (e.target.checked) {
-                      props.changeLayoutWidth(e.target.value)
-                    }
-                  }}
-                />{" "}
-                <label htmlFor="radioFluid">Fluid</label>
-                {"   "}
-                <input
-                  type="radio"
-                  id="radioBoxed"
-                  name="radioWidth"
-                  value="boxed"
-                  checked={props.layoutWidth === "boxed"}
-                  onChange={e => {
-                    if (e.target.checked) {
-                      props.changeLayoutWidth(e.target.value)
-                    }
-                  }}
-                />{" "}
-                <label htmlFor="radioBoxed">Boxed</label>
-              </div>
-              <hr className="mt-1" />
-
+                <Slider
+                    value={custom_val}
+                    min={4}
+                    max={46}
+                    labels={labels}
+                    orientation="horizontal"
+                    onChange={value => {
+                      //alert(value);
+                      //globalValue(value);
+                     setcustom_val(value);
+                      fn_size(value);
+                   }}
+                />
+              </div> 
+              <hr className="mt-5" />
+              <div className="mb-3">
               <div className="radio-toolbar">
-                <span className="mb-2 d-block" id="radio-title">
-                  Topbar Theme
-                </span>
+                <span className="mb-2 d-block font-18 text-start" id="radio-title">
+                 <h5 >Layouts</h5>
+                  </span>
+                
                 <input
                   type="radio"
-                  id="radioThemeLight"
-                  name="radioTheme"
+                  id="light-mode-switch"
+                  name="radioBloom"
                   value="light"
-                  checked={props.topbarTheme === "light"}
+                  checked={props.bodyTheme === "light"}
                   onChange={e => {
                     if (e.target.checked) {
+                      props.changeBodyTheme(e.target.value)
                       props.changeTopbarTheme(e.target.value)
+                      props.changeSidebarTheme(e.target.value)
                     }
                   }}
-                />
-                <label htmlFor="radioThemeLight">Light</label>
-                {"   "}
-                <input
+                />{" "}
+                 <label htmlFor="light-mode-switch">light</label>
+                 {"   "}
+                 <input
                   type="radio"
-                  id="radioThemeDark"
-                  name="radioTheme"
+                  id="dark-mode-switch"
+                  name="radioBloom"
                   value="dark"
-                  checked={props.topbarTheme === "dark"}
+                  checked={props.bodyTheme === "dark"}
                   onChange={e => {
                     if (e.target.checked) {
+                      props.changeBodyTheme(e.target.value)
                       props.changeTopbarTheme(e.target.value)
+                      props.changeSidebarTheme(e.target.value)
                     }
                   }}
-                />
-
-                <label htmlFor="radioThemeDark">Dark</label>
-                {"   "}
+                />{" "}
+                <label htmlFor="dark-mode-switch">dark</label>
               </div>
-
-              {props.layoutType === "vertical" ? (
+              <hr className="mt-1" />
+              {props.layoutType === "light" ? (
                 <React.Fragment>
-                  <hr className="mt-1" />
-                  <div className="radio-toolbar">
-                    <span className="mb-2 d-block" id="radio-title">
-                      Left Sidebar Type{" "}
-                    </span>
-                    <input
-                      type="radio"
-                      id="sidebarDefault"
-                      name="sidebarType"
-                      value="default"
-                      checked={props.leftSideBarType === "default"}
-                      onChange={e => {
-                        if (e.target.checked) {
-                          props.changeSidebarType(e.target.value)
-                        }
-                      }}
-                    />
-                    <label htmlFor="sidebarDefault">Default</label>
-                    {"   "}
-                    <input
-                      type="radio"
-                      id="sidebarCompact"
-                      name="sidebarType"
-                      value="compact"
-                      checked={props.leftSideBarType === "compact"}
-                      onChange={e => {
-                        if (e.target.checked) {
-                          props.changeSidebarType(e.target.value)
-                        }
-                      }}
-                    />
-                    <label htmlFor="sidebarCompact">Compact</label>
-                    {"   "}
-                    <input
-                      type="radio"
-                      id="sidebarIcon"
-                      name="sidebarType"
-                      value="icon"
-                      checked={props.leftSideBarType === "icon"}
-                      onChange={e => {
-                        if (e.target.checked) {
-                          props.changeSidebarType(e.target.value)
-                        }
-                      }}
-                    />
-                    <label htmlFor="sidebarIcon">Icon</label>
-                  </div>
-
-                  <hr className="mt-1" />
-
-                  <div className="radio-toolbar">
-                    <span className="mb-2 d-block" id="radio-title">
-                      Left Sidebar Color
-                    </span>
-                    <input
-                      type="radio"
-                      id="leftsidebarThemelight"
-                      name="leftsidebarTheme"
-                      value="light"
-                      checked={props.leftSideBarTheme === "light"}
-                      onChange={e => {
-                        if (e.target.checked) {
-                          props.changeSidebarTheme(e.target.value)
-                        }
-                      }}
-                    />
-
-                    <label htmlFor="leftsidebarThemelight">Light</label>
-                    {"   "}
-                    <input
-                      type="radio"
-                      id="leftsidebarThemedark"
-                      name="leftsidebarTheme"
-                      value="dark"
-                      checked={props.leftSideBarTheme === "dark"}
-                      onChange={e => {
-                        if (e.target.checked) {
-                          props.changeSidebarTheme(e.target.value)
-                        }
-                      }}
-                    />
-
-                    <label htmlFor="leftsidebarThemedark">Dark</label>
-                    {"   "}
-                    <input
-                      type="radio"
-                      id="leftsidebarThemecolored"
-                      name="leftsidebarTheme"
-                      value="colored"
-                      checked={props.leftSideBarTheme === "colored"}
-                      onChange={e => {
-                        if (e.target.checked) {
-                          props.changeSidebarTheme(e.target.value)
-                        }
-                      }}
-                    />
-
-                    <label htmlFor="leftsidebarThemecolored">Colored</label>
-                  </div>
                   <hr className="mt-1" />
                 </React.Fragment>
               ) : null}
-
-              <h6 className="text-center">Choose Layouts</h6>
-
-              <div className="mb-2">
-                <Link to="//veltrix-v.react.themesbrand.com" target="_blank">
-                  <img
-                    src={layout1}
-                    className="img-fluid img-thumbnail"
-                    alt=""
-                  />
-                </Link>
-                <div className="form-check form-switch mb-3">
-                  <input
-                    type="checkbox"
-                    className="form-check-input theme-choice"
-                    id="light-mode-switch"
-                    value="light"
-                    checked={props.bodyTheme === "light"}
-                    onChange={e => {
-                      if (e.target.checked) {
-                        props.changeBodyTheme(e.target.value)
-                      }
-                    }}
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="light-mode-switch"
-                  >
-                    Light Mode
-                  </label>
-                </div>
-              </div>
-
-              <div className="mb-2">
-                <Link
-                  to="//veltrix-v-dark.react.themesbrand.com"
-                  target="_blank"
-                >
-                  <img
-                    src={layout2}
-                    className="img-fluid img-thumbnail"
-                    alt=""
-                  />
-                </Link>
-                <div className="form-check form-switch mb-3">
-                  <input
-                    type="checkbox"
-                    className="form-check-input theme-choice"
-                    id="dark-mode-switch"
-                    value="dark"
-                    checked={props.bodyTheme === "dark"}
-                    onChange={e => {
-                      if (e.target.checked) {
-                        props.changeBodyTheme(e.target.value)
-                      }
-                    }}
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="dark-mode-switch"
-                  >
-                    Dark Mode
-                  </label>
-                </div>
-              </div>
-
-              <div className="mb-2">
-                <Link
-                  to="//veltrix-v-rtl.react.themesbrand.com"
-                  target="_blank"
-                >
-                  <img
-                    src={layout3}
-                    className="img-fluid img-thumbnail"
-                    alt=""
-                  />
-                </Link>
-                <div className="form-check form-switch mb-5">
-                  {/* <input
-                    type="checkbox"
-                    className="form-check-input theme-choice"
-                    id="rtl-mode-switch"                   
-                    onClick={(event) => console.log(event.target.checked)}
-                  /> */}
-                  <label className="form-check-label" htmlFor="rtl-mode-switch">
-                    RTL Mode
-                  </label>
-                </div>
-              </div>
-
-              <Link
-                to="#"
-                className="btn btn-primary btn-block mt-3"
-                target="_blank"
-              >
-                <i className="mdi mdi-cart ms-1" /> Purchase Now
-              </Link>
             </div>
           </div>
-        </SimpleBar>
-      </div>
+          
+        </div>
+      </SimpleBar>
+    </div>
+    <Row>
+
+
+</Row>
+  <div className="RightSidebar">
+<Slider/>
+</div>
+
       <div className="rightbar-overlay" />
     </React.Fragment>
   )

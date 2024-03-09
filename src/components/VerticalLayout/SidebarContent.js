@@ -143,18 +143,18 @@ const SidebarContent = props => {
     <React.Fragment>
       <SimpleBar style={{ maxHeight: "100%" }} ref={ref}>
         <div id="sidebar-menu">
-        <ul className="metismenu list-unstyled" id="side-menu">
-        <li>
-              <Link to="/Dasb" className="waves-effect">
+         {/*  <ul className="metismenu list-unstyled" id="side-menu">
+            <li>
+              <Link to="/dashboard" className="waves-effect">
                 <i className="ti-home"></i>
                 <span className="badge rounded-pill bg-primary float-end">1</span>
                 <span>{props.t("Dashboard")}</span>
               </Link>
             </li>
-            </ul>
+            </ul> */}
           <ul className="metismenu list-unstyled" id="side-menu">
-          <li className="menu-title">{props.t("Autonomous operation")}</li>
-
+        {/*   <li className="menu-title">{props.t("Autonomous operation")}</li>
+ */}
             <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-pie-chart"></i>
@@ -162,7 +162,7 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/dasb">{props.t("UPH, same-day WO win rate")}</Link>
+                  <Link to="/dashboard">{props.t("UPH, same-day WO win rate")}</Link>
                 </li>
                 <li>
                   <Link to="/wt-inbox">{props.t("Working hour compliance subcategories")}</Link>

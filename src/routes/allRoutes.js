@@ -11,10 +11,8 @@ import FileUpload from "../pages/FileUpload/file-upload";
 import FieldMiddle from "../pages/Field/MiddleType";
 import FieldSmall from "../pages/Field/SmallType";
 
-// Das
-import Dasb from "../pages/Main/Dashboard";
-import Dashboard from "../pages/Das/index";
-import Das from "../pages/Dashboard/index";
+// Main - Dashboard 대쉬보드 
+import Dashboard from "../pages/Main/Dashboard";
 
 //반성회 이미지 관리
 import Gallery from "../pages/Utility/Gallery";
@@ -192,12 +190,12 @@ const userRoutes = [
   //반성회 이미지 관리
   { path: "/gallery", component: <Gallery /> },
 
-  { path: "/dasb", component: <Dasb /> },
-  { path: "/das", component: <Das /> },
+  //대쉬보드
+  { path: "/dashboard", component: <Dashboard /> },
+
   
   { path: "/wt-inbox", component: <WtInbox /> },
 
-  { path: "/dashboard", component: <Dashboard /> },
 
   //연차현황2 연차 현황2
    { path: "/yeoncha", component: <Yeoncha /> }, 
@@ -295,7 +293,7 @@ const userRoutes = [
   { path: "/pages-profile", component: <PagesProfile /> },
 
   // this route should be at the end of all other routes
-  { path: "/", component: <Dasb /> },
+  { path: "/", component: <Dashboard /> },
 ];
 
 const authRoutes = [

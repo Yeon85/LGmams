@@ -145,7 +145,7 @@ const SidebarContent = props => {
         <div id="sidebar-menu">
         <ul className="metismenu list-unstyled" id="side-menu">
         <li>
-              <Link to="/Dasb" className="waves-effect">
+              <Link to="/dashboard" className="waves-effect">
                 <i className="ti-home"></i>
                 <span className="badge rounded-pill bg-primary float-end">1</span>
                 <span>{props.t("Dashboard")}</span>
@@ -162,7 +162,7 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/dasb">{props.t("UPH, same-day WO win rate")}</Link>
+                  <Link to="/dashboard">{props.t("UPH, same-day WO win rate")}</Link>
                 </li>
                 <li>
                   <Link to="/wt-inbox">{props.t("Working hour compliance subcategories")}</Link>

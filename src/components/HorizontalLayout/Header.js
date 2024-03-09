@@ -21,6 +21,9 @@ import { withTranslation } from "react-i18next"
 // import images
 import logodarkImg from "../../assets/images/LG_logo.svg";
 import logosmImg from "../../assets/images/logo-sm.png";
+import logosmDarkImg from "../../assets/images/logo-sm-dark.png";
+/* import logosmImg from "../../assets/images/logo-sm.png"; */
+
 import logolightImg from "../../assets/images/LG_logo.svg"; 
 
 const Header = props => {
@@ -61,7 +64,7 @@ const Header = props => {
             <div className="navbar-brand-box">
               <Link to="/dashboard" className="logo logo-dark">
                 <span className="logo-sm">
-                  <img src={logosmImg} alt="" height="22" />
+                  <img src={logodarkImg} alt="" height="33" />
                 </span>
                 <span className="logo-lg">
                   <img src={logodarkImg} alt="" height="47" />
@@ -70,7 +73,7 @@ const Header = props => {
 
               <Link to="/dashboard" className="logo logo-light">
                 <span className="logo-sm">
-                  <img src={logosmImg} alt="" height="22" />
+                  <img src={logosmImg} alt="" height="33" />
                 </span>
                 <span className="logo-lg">
                   <img src={logolightImg} alt="" height="48" />

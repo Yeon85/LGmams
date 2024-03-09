@@ -49,7 +49,7 @@ const Dashboard = props => {
   const toggle = () => {
     setMenu(!menu);
   };
-  document.title = "Dashboard | LG - React Admin & Dashboard Template";
+  document.title = "LG mams system";
   return (
     <React.Fragment>
       <div className="page-content">

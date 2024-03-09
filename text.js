@@ -4,7 +4,9 @@ react start
 
 C:\dev\node-v20.11.1-win-x64\yarn install
 C:\dev\node-v20.11.1-win-x64\yarn run start
+C:\dev (2)
 
+C:\dev (2)\node-v20.11.1-win-x64\yarn install
 
 나는 veltix 프레임워크로 react 개발중인데 여기에 MDBDataTable 이 있는데 Show entries를 테이블 아래로 내리싶어
 

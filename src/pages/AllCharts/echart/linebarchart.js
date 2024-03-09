@@ -51,7 +51,7 @@ class LineBar extends Component {
             },
             color: ['#3c4ccf', '#02a499', '#38a4f8'],
             legend: {
-                data: ['Evaporation', 'Precipitation', 'Average temperature'],
+                data: ['Evaporation', 'Precipitation', 'temperature'],
                 textStyle: {
                     color: ['#74788d']
                 }
@@ -83,7 +83,7 @@ class LineBar extends Component {
                 },
                 {
                     type: 'value',
-                    name: 'Temperature',
+                  //  name: 'Temperature',
                     min: 0,
                     max: 25,
                     interval: 5,
