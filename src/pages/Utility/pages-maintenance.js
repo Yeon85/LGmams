@@ -4,7 +4,7 @@ import { Card, CardBody, Row, Col } from "reactstrap";
 
 //Import Images
 import maintenanceImg from "../../assets/images/maintenance.png";
-import logoDark from "../../assets/images/LG_logo.svg";
+import logoDark from "../../assets/images/logo.png";
 
 const PagesMaintenance = () => {
   document.title = "Maintenance | Veltrix - React Admin & Dashboard Template";

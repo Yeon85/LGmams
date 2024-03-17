@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Card, CardBody, Col, Container, Row } from "reactstrap";
 
 // import images
-import logodark from "../../assets/images/LG_logo.svg";
-import logolight from "../../assets/images/LG_logo.svg";
+import logodark from "../../assets/images/logo.png";
+import logolight from "../../assets/images/logo.png";
 
 const ConfirmMail = () => {
   document.title = "Confirm Mail | Veltrix - React Admin & Dashboard Template";

@@ -3,11 +3,15 @@ import React, { useState, useEffect } from "react";
 
 import { Row, Col, CardBody, Card, Container, Label, Form, FormFeedback, Input } from "reactstrap";
 
+//백그라운드 이미지
+import backgroundImage from '../../assets/images/background.jpg'; // 이미지 파일의 경로를 입력해주세요.
+
 // Redux
 import { connect, useSelector, useDispatch } from "react-redux";
 import { Link } from 'react-router-dom';
 import withRouter from 'components/Common/withRouter';
 
+//로그인
 // Formik validation
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -17,6 +21,7 @@ import { loginUser, apiError } from "../../store/actions";
 
 // import images
 import logoSm from "../../assets/images/logo-sm.png";
+import logolightImg from "../../assets/images/LG_logo.svg"; 
 
 const Login = props => {
   const dispatch = useDispatch();
@@ -53,33 +58,55 @@ const Login = props => {
     }
   });
 
-  document.title = "Login | Veltrix - React Admin & Dashboard Template";
+  //투명도
+  const containerStyle = {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)', // 투명도를 조절할 색상을 지정합니다. rgba 형식을 사용하며, 마지막 값은 투명도를 나타냅니다.
+     position: 'fixed',
+    top: 0,
+    left: 300, 
+    height: '100vh',
+    width: '60vh',
+
+  };
+
+  document.title = "LG mams system";
   return (
     <React.Fragment>
-      <div className="home-btn d-none d-sm-block">
+      {/* <div className="home-btn d-none d-sm-block">
         <Link to="/" className="text-dark">
           <i className="fas fa-home h2" />
         </Link>
-      </div>
-      <div className="account-pages my-5 pt-sm-5">
+      </div> */}
+      <div
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+      <div className="account-pages my-0 pt-sm-5">
         <Container>
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={4}>
-              <Card className="overflow-hidden">
-                <div className="bg-primary">
-                  <div className="text-primary text-center p-4">
+              <Card className="overflow-hidden" style={containerStyle}>
+                <div className="bg-dark">
+                  <div className="text-danger text-center p-4">
+                  <span className="logo-lg">
+                  <img src={logolightImg} alt="" height="48" />
+                </span>
                     <h5 className="text-white font-size-20">
-                      Welcome Back !
+                      LG mams system
                     </h5>
-                    <p className="text-white-50">
+                    {/* <p className="text-white-50">
                       Sign in to continue to Veltrix.
-                    </p>
-                    <Link to="/" className="logo logo-admin">
+                    </p> */}
+                    {/* <Link to="/" className="logo logo-admin">
                       <img src={logoSm} height="24" alt="logo" />
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
-
                 <CardBody className="p-4">
                   <div className="p-3">
                     <Form className="mt-4"
@@ -91,7 +118,7 @@ const Login = props => {
                       action="#">
 
                       <div className="mb-3">
-                        <Label className="form-label" htmlFor="username">Username</Label>
+                        <Label className="form-label text-dark" htmlFor="username">아이디</Label>
                         <Input
                           name="email"
                           className="form-control"
@@ -111,7 +138,7 @@ const Login = props => {
                       </div>
 
                       <div className="mb-3">
-                        <Label className="form-label" htmlFor="userpassword">Password</Label>
+                        <Label className="form-label text-dark" htmlFor="userpassword">비밀번호</Label>
                         <Input
                           name="password"
                           value={validation.values.password || ""}
@@ -131,27 +158,27 @@ const Login = props => {
 
                       <div className="mb-3 row">
                         <div className="col-sm-6">
-                          <div className="form-check">
+                          {/* <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="customControlInline" />
-                            <label className="form-check-label" htmlFor="customControlInline">Remember me</label>
-                          </div>
+                            <label className="form-check-label" htmlFor="customControlInline">저장</label>
+                          </div> */}
                         </div>
                         <div className="col-sm-6 text-end">
-                          <button className="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
+                          <button className="btn btn-dark w-md waves-effect waves-light" type="submit">로그인</button>
                         </div>
                       </div>
 
-                      <div className="mt-2 mb-0 row">
+                      {/* <div className="mt-2 mb-0 row">
                         <div className="col-12 mt-4">
-                          <Link to="/forgot-password"><i className="mdi mdi-lock"></i> Forgot your password?</Link>
+                          <Link to="/forgot-password"><i className="mdi mdi-lock"></i> 비밀번호를 잃어 버렸습니까?</Link>
                         </div>
-                      </div>
+                      </div> */}
 
                     </Form>
                   </div>
                 </CardBody>
               </Card>
-              <div className="mt-5 text-center">
+              {/* <div className="mt-5 text-center">
                 <p>
                   Don&#39;t have an account ?{" "}
                   <Link
@@ -166,10 +193,11 @@ const Login = props => {
                   © {new Date().getFullYear()} Veltrix. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Themesbrand
                 </p>
-              </div>
+              </div> */}
             </Col>
           </Row>
         </Container>
+      </div>
       </div>
     </React.Fragment>
   );

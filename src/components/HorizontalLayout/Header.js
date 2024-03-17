@@ -19,12 +19,12 @@ import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu"
 import { withTranslation } from "react-i18next"
 
 // import images
-import logodarkImg from "../../assets/images/LG_logo.svg";
+import logodarkImg from "../../assets/images/logo.png";
 import logosmImg from "../../assets/images/logo-sm.png";
 import logosmDarkImg from "../../assets/images/logo-sm-dark.png";
 /* import logosmImg from "../../assets/images/logo-sm.png"; */
 
-import logolightImg from "../../assets/images/LG_logo.svg"; 
+import logolightImg from "../../assets/images/logo.png"; 
 
 const Header = props => {
 
